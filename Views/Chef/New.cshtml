@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Nuevo chef";
+}
+@await Html.PartialAsync("_Navlinks")
+@model Chef
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form asp-action="Create" asp-controller="Chef" method="POST">
+        <span>
+            <label asp-for="FirstName">First Name:</label>
+            <input asp-for="FirstName">
+        </span>
+        <span asp-validation-for="FirstName"></span>
+        <span>
+            <label asp-for="LastName">Last Name:</label>
+            <input asp-for="LastName">
+        </span>
+        <span asp-validation-for="LastName"></span>
+        <span>
+            <label asp-for="DateOfBirth">Date of Birth:</label>
+            <input asp-for="DateOfBirth">
+        </span>
+        <span asp-validation-for="DateOfBirth"></span>
+        <input type="submit" value="Add Chef">
+    </form>
+</div>

@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Lista de platos";
+}
+@await Html.PartialAsync("_Navlinks")
+@model List<Dish>
+<div class="text-center">
+    <h1 class="display-4">Check out our roster of chefs!</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+        @foreach(Dish d in Model)
+        {
+            <tr>
+                <td>@d.Name</td>
+                <td>@d.Creator.FirstName @d.Creator.LastName</td>
+                <td>@d.Tastiness</td>
+                <td>@d.Calories</td>
+            </tr>
+        }
+    </table>
+</div>

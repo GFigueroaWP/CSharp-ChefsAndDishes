@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Lista de chefs";
+}
+@await Html.PartialAsync("_Navlinks")
+@model List<Chef>
+<div class="text-center">
+    <h1 class="display-4">Check out our roster of chefs!</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th># of dishes</th>
+        </tr>
+        @foreach(Chef c in Model)
+        {
+            int age = DateTime.Now.Year - c.DateOfBirth.Year;
+            <tr>
+                <td>@c.FirstName @c.LastName</td>
+                <td>@age</td>
+                <td>@c.CreatedDishes.Count()</td>
+            </tr>
+        }
+    </table>
+</div>

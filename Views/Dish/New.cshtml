@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "New Dish";
+}
+@await Html.PartialAsync("_Navlinks")
+@model Dish
+<div class="text-center">
+    <h1 class="display-4">Add a new Dish!</h1>
+</div>
+<div>
+    <form asp-action="Create" asp-controller="Dish" method="post">
+        <div class="form-row">
+            <div class="form-col">
+                <div>
+                    <label asp-for="Name">Name of Dish</label>
+                    <input asp-for="Name" />
+                </div>
+                <span asp-validation-for="Name"></span>
+                <div>
+                    <label asp-for="Calories"># of Calories</label>
+                    <input asp-for="Calories" />
+                </div>
+                <span asp-validation-for="Calories"></span>
+            </div>
+            <div class="form-col">
+                <select asp-for="ChefId">
+                    @foreach (var chef in ViewBag.Chefs)
+                    {
+                        <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-col">
+                <label asp-for="Tastiness"></label>
+                <select asp-for="Tastiness">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Tastiness"></span>
+            </div>
+        </div>
+        <button type="submit" class="form-submit">Add Dish</button>
+    </form>
+</div>
